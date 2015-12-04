@@ -1,0 +1,10 @@
+git init  - sets up all the tools Git needs to begin tracking changes made to a project
+git status  -shows tracking status of files 
+git add filename  -adds file to staging area so it can be tracked by Git
+git diff filename  - shows difference between filename and staging area
+git commit -m "message"  - records changes locally
+git log  - shows commit logs
+git show HEAD  -most recent commit
+git checkout HEAD filename -update working area to match version in staging area
+git reset HEAD filename -reset current HEAD to specified state
+git reset SHA -changes current HEAD to SHA ID#
