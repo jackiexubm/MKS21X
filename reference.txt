@@ -8,3 +8,4 @@ git show HEAD  -most recent commit
 git checkout HEAD filename -update working area to match version in staging area
 git reset HEAD filename -reset current HEAD to specified state
 git reset SHA -changes current HEAD to SHA ID#
+revert these changes 
