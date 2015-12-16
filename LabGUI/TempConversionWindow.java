@@ -27,6 +27,8 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 
 	input = new JTextField();
 
+	result = new Jlabel("Please type number in textfield");
+
     }
 
     public void actionPerformed(ActionEvent e){
@@ -34,14 +36,14 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	if(event.equals("convertC")){
 	    String input = input.getText();
 	    double num = parseDouble(input);
-	    s = ;
-	    j.setText(s);
+	    s = HwTemperature.FtoC(num);
+	    result.setText(s);
 	}
 	if(event.equals("convertF")){
 	    String input = input.getText();
 	    double num = parseDouble(input);
-	    s = ;
-	    j.setText("Fish");
+	    s = HwTemperature.CtoF(num);
+	    result.setText(s);
   
 	}
     }
