@@ -21,29 +21,29 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	toC.addActionListener(this);
 	toC.setActionCommand("convertC");
 	JButton toF = new JButton("toF");
-	b2.addActionListener(this);
-	b2.setActionCommand("convertF");
+	toF.addActionListener(this);
+	toF.setActionCommand("convertF");
 
 
 	input = new JTextField();
 
-	result = new Jlabel("Please type number in textfield");
+	result = new JLabel("Please type number in textfield");
 
     }
 
     public void actionPerformed(ActionEvent e){
 	String event = e.getActionCommand();
 	if(event.equals("convertC")){
-	    String input = input.getText();
-	    double num = parseDouble(input);
-	    s = HwTemperature.FtoC(num);
-	    result.setText(s);
+	    String inText = input.getText();
+	    double num = Double.parseDouble(inText);
+	    String display = "" + HwTemperature.FtoC(num);
+	    result.setText(display);
 	}
 	if(event.equals("convertF")){
-	    String input = input.getText();
-	    double num = parseDouble(input);
-	    s = HwTemperature.CtoF(num);
-	    result.setText(s);
+	    String inText = input.getText();
+	    double num = Double.parseDouble(inText);
+	    String display = "" + HwTemperature.CtoF(num);
+	    result.setText(display);
   
 	}
     }
