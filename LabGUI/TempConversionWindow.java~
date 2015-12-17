@@ -4,8 +4,8 @@ import java.awt.event.*;
 
 public class TempConversionWindow extends JFrame implements ActionListener{
     private Container pane;
-    private JLabel j;
-    private JTextField t;
+    private JLabel result;
+    private JTextField input;
 
     public TempConversionWindow() {
 	this.setTitle("My first GUI");
@@ -17,35 +17,48 @@ public class TempConversionWindow extends JFrame implements ActionListener{
 	pane = this.getContentPane();
 	pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 
-	JButton b = new JButton("ByteMe");
-	b.addActionListener(this);
-	b.setActionCommand("Byte");
-	JButton b2 = new JButton("No...");
-	b2.addActionListener(this);
-	b2.setActionCommand("NotByte");
+	JButton toC = new JButton("toC");
+	toC.addActionListener(this);
+	toC.setActionCommand("convertC");
+	JButton toF = new JButton("toF");
+	toF.addActionListener(this);
+	toF.setActionCommand("convertF");
 
 
-	t = new JTextField(10);
+	input = new JTextField();
 
-	JCheckBox c = new JCheckBox("OverClock");
-	j = new JLabel("Meaning of life is... ");
-	pane.add(c);
-	pane.add(t);
-	pane.add(b);
-	pane.add(b2);
-	pane.add(j);
+	result = new JLabel("Please type number in textfield");
+
+	pane.add(toF);
+	pane.add(toC);
+	pane.add(input);
+	pane.add(result);
+
     }
 
     public void actionPerformed(ActionEvent e){
+	String display;
 	String event = e.getActionCommand();
-	if(event.equals("Byte")){
-	    String s = t.getText();
-	    s += "-0101000";
-	    j.setText(s);
+	if(event.equals("convertC")){
+	    String inText = input.getText();
+	    if(inText.length() < 1 || !(inText.matches("[0-9]+"))){
+		display = "Please enter a number in the text field!";
+	    }else{
+		double num = Double.parseDouble(inText);
+		display = "" + HwTemperature.FtoC(num);
+	    }
+	    result.setText(display);
 	}
-	if(event.equals("NotByte")){
-	    j.setText("Fish");
-  
+	if(event.equals("convertF")){
+	    String inText = input.getText();
+	    if(inText.length() < 1 || !(inText.matches("[0-9]+"))){
+		display = "Please enter a number in the text field!";
+	    }else{
+		double num = Double.parseDouble(inText);
+		display = "" + HwTemperature.CtoF(num);
+	    }
+	    result.setText(display);
+	    
 	}
     }
 }
