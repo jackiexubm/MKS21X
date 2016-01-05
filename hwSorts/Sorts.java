@@ -39,7 +39,19 @@ public class Sorts{
     }
     
     public static void selectionSort(int[] data){
-	int position = 0;
-	for (int i = position + 1; )
+	
+	for (int i = 0; i < data.length; i ++){
+	    int lowest = data[i];
+	    int lowestPosition = i;
+	    for(int i2 = i; i2 < data.length - 1; i2 ++){
+		if(data[i2 + 1] < lowest){
+		    lowest = data[i2 + 1];
+		    lowestPosition = i2 + 1;
+		}
+	    }
+	    int holder = data[i];
+	    data[i] = lowest;
+	    data[lowestPosition] = holder;
+	}
     }
 }
