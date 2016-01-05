@@ -1,4 +1,6 @@
 public class Sorts{
+    
+    static boolean debug = true;
     public static void printArray(int[] data){
 	if (data.length == 0) {
 	    System.out.print("\n[]");
@@ -16,6 +18,11 @@ public class Sorts{
     public static void insertionSort(int[] data){
 	if (data.length == 0){
 	}else{
+	    printArray(data);
+	    if(debug){
+		System.out.print("\nStart insertionSort");
+	    }
+	   
 	    for(int i = 1; i < data.length; i++){			 // go through each element
 		boolean notDone = true;    
 		for(int j = i - 1; j >= 0 && notDone; j--){	 // check each element before for position to be inserted
@@ -34,12 +41,16 @@ public class Sorts{
 			data[0] = intsert;					 // add intsert to beginning
 		    }
 		}
+		printArray(data);
 	    }
 	}
     }
     
     public static void selectionSort(int[] data){
-	
+	printArray(data);
+	if(debug){
+	    System.out.print("\nStart selectionSort:");
+	}
 	for (int i = 0; i < data.length; i ++){
 	    int lowest = data[i];
 	    int lowestPosition = i;
@@ -52,6 +63,11 @@ public class Sorts{
 	    int holder = data[i];
 	    data[i] = lowest;
 	    data[lowestPosition] = holder;
+	    printArray(data);
 	}
+	System.out.print("\nResult:");
+	printArray(data);
     }
+
+    
 }
