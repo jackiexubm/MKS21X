@@ -63,7 +63,6 @@ public class Sorts{
     }
 
     public static void selectionSort(int[] data){
-	printArray(data);
 	if(debug.equals("true")){
 	    System.out.print("\nStart selectionSort:");
 	}

@@ -46,7 +46,6 @@ public class Driver2{
             Sorts.selectionSort(ary);
         }
         long end = System.currentTimeMillis();
-
-        System.out.println("Time:"+ (end-start)/1000.0 + " seconds. Size = "+ary.length);
+	System.out.println("Time:"+ (end-start)/1000.0 + " seconds. Size = "+ary.length);
     }
 }
