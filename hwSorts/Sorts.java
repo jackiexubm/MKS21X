@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Sorts{
     
     private static String debug = "false";
@@ -12,6 +13,13 @@ public class Sorts{
 		i++;
 	    }
 	    System.out.print(data[i] + "]");
+	}
+    }
+
+    public static void fillRandom(int[] data){
+	Random rand = new Random();
+	for(int i = 0; i < data.length; i ++){
+	    data[i] = rand.nextInt(Integer.MAX_VALUE) - (2 * rand.nextInt(Integer.MAX_VALUE));
 	}
     }
     
