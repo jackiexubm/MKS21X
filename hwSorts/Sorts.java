@@ -1,6 +1,6 @@
 public class Sorts{
     
-    static boolean debug = fakse;
+    private static String debug = "false";
     public static void printArray(int[] data){
 	if (data.length == 0) {
 	    System.out.print("\n[]");
@@ -18,7 +18,7 @@ public class Sorts{
     public static void insertionSort(int[] data){
 	if (data.length == 0){
 	}else{
-	    if(debug){
+	    if(debug.equals("true")){
 		printArray(data);	
 		System.out.print("\nStart insertionSort");
 	    }  
@@ -40,10 +40,9 @@ public class Sorts{
 			data[0] = intsert;					 // add intsert to beginning
 		    }
 		}
-		if(debug){
-		    System.out.print("\nResult:")
-		    printArray(data);
-		    
+		if(debug.equals("true")){
+		    System.out.print("\nResult:");
+		    printArray(data);	    
 		}
 	    }
 	}
@@ -57,32 +56,28 @@ public class Sorts{
 
     public static void selectionSort(int[] data){
 	printArray(data);
-	if(debug){
+	if(debug.equals("true")){
 	    System.out.print("\nStart selectionSort:");
 	}
 	for (int i = 0; i < data.length; i ++){
-	    int lowest = data[i];
 	    int lowestPosition = i;
+	    int lowest = data[i];
 	    for(int i2 = i; i2 < data.length - 1; i2 ++){
 		if(data[i2 + 1] < lowest){
 		    lowest = data[i2 + 1];
 		    lowestPosition = i2 + 1;
 		}
 	    }
-	    int holder = data[i];
-	    data[i] = lowest;
-	    data[lowestPosition] = holder;
-	    printArray(data);
+	    swap(data,i,lowestPosition);
 	}
-	if(debug){
-	System.out.print("\nResult:");
+	if(debug.equals("true")){
+	    System.out.print("\nResult:");
 	printArray(data);
 	}
     }
-
+    
     public static void bubbleSort(int[] data){
-	printArray(data);
-	if(debug){
+	if(debug.equals("true")){
 	    System.out.print("\nStart bubbleSort:");
 	}
 
@@ -94,20 +89,17 @@ public class Sorts{
 		    swapped ++;
 		}
 	    }
-	    printArray(data);
 	    if(swapped < 1){
-		if(debug){
-		System.out.print("\nResult:");
-		printArray(data);
+		if(debug.equals("true")){
+		    System.out.print("\nResult:");
+		    printArray(data);
 		}
 		return;
 	    }
 	}
-	if(debug){
+	if(debug.equals("true")){
 	System.out.print("\nResult:");
 	printArray(data);
 	}	
-    }
-    
-    
+    }    
 }
