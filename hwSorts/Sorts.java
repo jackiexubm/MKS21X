@@ -1,6 +1,6 @@
 public class Sorts{
     
-    static boolean debug = true;
+    static boolean debug = fakse;
     public static void printArray(int[] data){
 	if (data.length == 0) {
 	    System.out.print("\n[]");
@@ -18,8 +18,8 @@ public class Sorts{
     public static void insertionSort(int[] data){
 	if (data.length == 0){
 	}else{
-	    printArray(data);
 	    if(debug){
+		printArray(data);	
 		System.out.print("\nStart insertionSort");
 	    }  
 	    for(int i = 1; i < data.length; i++){			 // go through each element
@@ -40,11 +40,21 @@ public class Sorts{
 			data[0] = intsert;					 // add intsert to beginning
 		    }
 		}
-		printArray(data);
+		if(debug){
+		    System.out.print("\nResult:")
+		    printArray(data);
+		    
+		}
 	    }
 	}
     }
     
+    public static void swap(int[] data, int pos1, int pos2){
+	int holder = data[pos2];
+	data[pos2] = data[pos1];
+	data[pos1] = holder;
+    }
+
     public static void selectionSort(int[] data){
 	printArray(data);
 	if(debug){
@@ -64,9 +74,40 @@ public class Sorts{
 	    data[lowestPosition] = holder;
 	    printArray(data);
 	}
+	if(debug){
 	System.out.print("\nResult:");
 	printArray(data);
+	}
     }
 
+    public static void bubbleSort(int[] data){
+	printArray(data);
+	if(debug){
+	    System.out.print("\nStart bubbleSort:");
+	}
+
+	for (int i = 0; i < data.length - 1; i ++){
+	    int swapped = 0;   
+	    for (int i2 = 0; i2 < data.length - 1 - i; i2 ++){
+		if(data[i2] > data[i2 + 1]){
+		    swap(data,i2,i2 + 1);
+		    swapped ++;
+		}
+	    }
+	    printArray(data);
+	    if(swapped < 1){
+		if(debug){
+		System.out.print("\nResult:");
+		printArray(data);
+		}
+		return;
+	    }
+	}
+	if(debug){
+	System.out.print("\nResult:");
+	printArray(data);
+	}	
+    }
+    
     
 }

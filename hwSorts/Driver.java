@@ -1,7 +1,7 @@
 public class Driver{
     public static void main(String[]args){
 	String type = "insertion";
-	int size = 10000;
+	int size = 10;
 	String arrayType = "random";
 
 	if(args.length > 0){
@@ -15,10 +15,14 @@ public class Driver{
 	}
 	int[] test = new int[size];
 	for (int i = 0; i < size; i ++){
-	    test[i] = (int)(Math.random()*100000000);
+	    test[i] = (int)(Math.random()*10);
 	}
 
 
+	Sorts.bubbleSort(test);
+	Sorts.printArray(test);
+
+	
 
 
 
