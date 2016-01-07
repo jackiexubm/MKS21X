@@ -1,14 +1,26 @@
 public class Driver{
     public static void main(String[]args){
-	int[] arrayName = new int[10];
-	String input = args[0];
-	for (int i = 0; i < 10; i ++){
-	    arrayName[i] = (int)(Math.random()*1000);
+	String type = "insertion";
+	int size = 10000;
+	String arrayType = "random";
+
+	if(args.length > 0){
+	    type = args[0];
 	}
-	if(input.equals("selection")){
-	    Sorts.selectionSort(arrayName);
-	}else if(input.equals("insertion")){
-	    Sorts.insertionSort(arrayName);
+	if(args.length > 1){
+	    size = Integer.parseInt(args[1]);
 	}
+	if(args.length > 2){
+	    arrayType = args[2];
+	}
+	int[] test = new int[size];
+	for (int i = 0; i < size; i ++){
+	    test[i] = (int)(Math.random()*100000000);
+	}
+
+
+
+
+
     }
 }

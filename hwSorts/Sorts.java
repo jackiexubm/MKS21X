@@ -21,8 +21,7 @@ public class Sorts{
 	    printArray(data);
 	    if(debug){
 		System.out.print("\nStart insertionSort");
-	    }
-	   
+	    }  
 	    for(int i = 1; i < data.length; i++){			 // go through each element
 		boolean notDone = true;    
 		for(int j = i - 1; j >= 0 && notDone; j--){	 // check each element before for position to be inserted
